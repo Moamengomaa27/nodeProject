@@ -2,3 +2,4 @@
 # this is the ignore files
 
 notes.txt
+./node_modules

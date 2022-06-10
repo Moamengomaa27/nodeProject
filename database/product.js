@@ -10,7 +10,7 @@ let productSchema = new mongoose.Schema({
   category_id: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "catagories",
+    ref: "category",
   },
 });
 
