@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 let userSchema = require('../database/user');
-let bcrypt = require('bcryptjs');
+let bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 userSchema.methods.generateAuthToken = async function() {
