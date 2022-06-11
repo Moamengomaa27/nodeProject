@@ -1,5 +1,5 @@
 let order = require('../models/order');
-let createOrder=("/", verifyToken, async (req, res) => {
+let createOrder = ("/", verifyToken, async (req, res) => {
     let newOrder = new Order(req.body);
   
     try {
@@ -46,7 +46,10 @@ let createOrder=("/", verifyToken, async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
+
   });
+
+
   module.exports={
     createOrder,
     updatedOrder,

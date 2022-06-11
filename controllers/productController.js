@@ -1,4 +1,4 @@
-let Product = require('../models/product');
+let Product = require('../models/Product');
 let getAllProduct = async(req, res) => {
     res.send(await Product.find().populate('category_id'));
 }

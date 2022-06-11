@@ -1,4 +1,4 @@
-let Category = require('../models/category');
+let Category = require('../models/Category');
 let Joi = require('joi');
 
 let schema = Joi.object({
