@@ -3,7 +3,7 @@ let express = require('express');
 let app = express();
 let product = require('./routes/product')
 let category = require('./routes/category')
-let cart = require('./rootes/cart')
+let cart = require('./routes/cart')
 let order =require('/routes/order')
 mongoose.connect('mongodb://localhost/ecommerce')
     .then(console.log('connected'))

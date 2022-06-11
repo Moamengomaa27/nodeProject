@@ -1,6 +1,7 @@
+const { model } = require('mongoose');
 const Cart = require('../models/cart');
 
-exports.addItemToCart = (req, res) => {
+let addItemToCart = (req, res) => {
     console.log('ece')
     const cart = new Cart({
         user: req.user._id,
@@ -17,6 +18,4 @@ exports.addItemToCart = (req, res) => {
 
 };
 
-module.exports = {
-    addItemToCart
-}
+module.exports = {addItemToCart};
