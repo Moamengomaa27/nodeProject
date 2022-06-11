@@ -8,17 +8,6 @@ let categorySchema = new mongoose.Schema({
         maxlength: 15,
     },
     pic: String,
-    // has_discout: Boolean,
-    // disount_value: {
-    //     type: Number,
-    //     required: function() {
-    //         if (this.has_discout) {
-    //             return true;
-    //         }
-    //     }
-    // }
 })
-
-
 
 module.exports = categorySchema;

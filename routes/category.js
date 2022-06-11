@@ -22,7 +22,7 @@ var upload = multer({
     }
 });
 
-let CategoryController = require('../controllers/CategoryController');
+let CategoryController = require('../controllers/categoryController');
 
 router.get('/', CategoryController.getAllCategory)
 router.post('/', upload.single('pic'), CategoryController.createCategory)

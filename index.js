@@ -4,7 +4,9 @@ let app = express();
 let product = require('./routes/product')
 let category = require('./routes/category')
 let cart = require('./routes/cart')
-let order =require('/routes/order')
+let order =require('./routes/order')
+
+
 mongoose.connect('mongodb://localhost/ecommerce')
     .then(console.log('connected'))
     .catch(err => console.log('err: ' + err));

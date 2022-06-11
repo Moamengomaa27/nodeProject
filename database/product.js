@@ -8,9 +8,12 @@ let productSchema = new mongoose.Schema({
   is_available: Boolean,
   expired_date: Date,
   category_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "category",
+    // type: mongoose.Schema.Types.ObjectId,
+    // required: true,
+    // ref: 'categorys',
+    type: Number,
+     ref: 'categorys'
+
   },
 });
 

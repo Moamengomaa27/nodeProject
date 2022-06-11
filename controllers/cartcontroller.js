@@ -18,4 +18,4 @@ let addItemToCart = (req, res) => {
 
 };
 
-module.exports = {addItemToCart};
+module.exports = { addItemToCart }

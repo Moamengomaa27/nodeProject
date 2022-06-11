@@ -1,5 +1,5 @@
-let order = require('../models/order');
-let createOrder=("/", verifyToken, async (req, res) => {
+let Order = require('../models/order');
+let createOrder = ("/", async (req, res) => {
     let newOrder = new Order(req.body);
   
     try {
@@ -9,7 +9,7 @@ let createOrder=("/", verifyToken, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  let updatedOrder = ("/:id", verifyTokenAndAdmin, async (req, res) => {
+  let updatedOrder = ("/:id", async (req, res) => {
     try {
       let updatedOrder = await Order.findByIdAndUpdate(
         req.params.id,
@@ -23,7 +23,7 @@ let createOrder=("/", verifyToken, async (req, res) => {
       res.status(500).json(err);
     }
   });
- let deleteOrder=("/:id", verifyTokenAndAdmin, async (req, res) => {
+ let deleteOrder=("/:id", async (req, res) => {
     try {
       await Order.findByIdAndDelete(req.params.id);
       res.status(200).json("Order has been deleted...");
@@ -31,7 +31,7 @@ let createOrder=("/", verifyToken, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  let getUserOrder=("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
+  let getUserOrder=("/find/:userId", async (req, res) => {
     try {
       let orders = await Order.find({ userId: req.params.userId });
       res.status(200).json(orders);
@@ -39,14 +39,17 @@ let createOrder=("/", verifyToken, async (req, res) => {
       res.status(500).json(err);
     }
   });
-  let getAllOrder=("/", verifyTokenAndAdmin, async (req, res) => {
+  let getAllOrder=("/", async (req, res) => {
     try {
       let orders = await Order.find();
       res.status(200).json(orders);
     } catch (err) {
       res.status(500).json(err);
     }
+
   });
+
+
   module.exports={
     createOrder,
     updatedOrder,

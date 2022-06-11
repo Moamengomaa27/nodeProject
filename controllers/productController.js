@@ -1,4 +1,4 @@
-let Product = require('../models/product');
+let Product = require('../models/Product');
 let getAllProduct = async(req, res) => {
     res.send(await Product.find().populate('category_id'));
 }
@@ -6,7 +6,8 @@ let createProduct = async(req, res) => {
     try {
         res.send(await Product.create(req.body));
     } catch (error) {
-        res.send(error, 400);
+        res.status(400).send(error);
+        // res.send(error, 400);
     }
 }
 let deleteProduct = async(req, res) => {
