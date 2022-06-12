@@ -1,4 +1,4 @@
-let Category = require('../models/Category');
+let Category = require('../models/category');
 let Joi = require('joi');
 
 let schema = Joi.object({
@@ -13,7 +13,7 @@ let createCategory = async(req, res) => {
     try {
         // console.log(req.bo);
         await schema.validateAsync(req.body);
-        res.send(await Category.create(req.body));
+        res.send(await Category.create({...req.body, pic: req.file.filename }));
     } catch (error) {
         res.send(error, 400);
     }
