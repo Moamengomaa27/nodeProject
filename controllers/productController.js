@@ -3,6 +3,9 @@ let Product = require("../models/Product");
 let getAllProduct = async (req, res) => {
   res.send(await Product.find().populate("category_id"));
 };
+let getProduct = async (req, res) => {
+  res.send(await Product.findById(req.params.id));
+};
 // to create a new product
 let createProduct = async (req, res) => {
   try {
@@ -27,4 +30,5 @@ module.exports = {
   createProduct,
   deleteProduct,
   editProduct,
+  getProduct
 };

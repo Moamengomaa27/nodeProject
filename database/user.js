@@ -9,11 +9,13 @@ let userSchema = new mongoose.Schema({
     },
     email: String,
     password: String,
-    token: {
+    tokens : [{
+        token: {
             type: String,
             required: true
-    }
-})
+        }
+    }]
+});
 
 
 

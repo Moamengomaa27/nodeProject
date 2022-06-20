@@ -1,6 +1,6 @@
 let User = require('../models/user');
 let Joi = require('joi');
-let bcrypt = require('bcryptjs');
+let bcrypt = require('bcrypt');
 let schema = Joi.object({
     name: Joi.string().min(5).max(15).required(),
     email: Joi.string()
@@ -11,6 +11,10 @@ let schema = Joi.object({
 let getAllUser = async(req, res) => {
     res.send(await User.find());
 }
+
+let getUser = async(req, res) => {
+    res.send(await User.findById(req.params.id));}
+
 let createUser = async(req, res) => {
     //validate
     try {
@@ -27,10 +31,11 @@ let deleteUser = async(req, res) => {
 
 let editUser = async(req, res) => {
     res.send(await User.findByIdAndUpdate(req.params.id, req.body));
-}
+} 
 
 module.exports = {
     getAllUser,
+    getUser,
     createUser,
     deleteUser,
     editUser

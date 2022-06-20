@@ -6,18 +6,30 @@ let schema = Joi.object({
 })
 
 let getAllCategory = async(req, res) => {
-    res.send(await Category.find());
+    res.send(await Category.find({}));
 }
 let createCategory = async(req, res) => {
-    //validate
-    try {
-        // console.log(req.bo);
-        await schema.validateAsync(req.body);
-        res.send(await Category.create({...req.body, pic: req.file.filename }));
+try {
+    let result = await schema.validateAsync(req.body);
+    let category = await Category.create(result);
+    res.send(category);
+
     } catch (error) {
-        res.send(error, 400);
+        res.status(400).send(error);
     }
 }
+
+
+
+    //validate
+//     try {
+//         // console.log(req.bo);
+//         await schema.validateAsync(req.body);
+//         res.send(await Category.create({...req.body, pic: req.file.filename }));
+//     } catch (error) {
+//         res.send(error, 400);
+//     }
+// }
 
 let deleteCategory = async(req, res) => {
     res.send(await Category.findByIdAndDelete(req.params.id));
